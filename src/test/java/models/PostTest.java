@@ -4,7 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.time.LocalDateTime;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PostTest {
 
@@ -49,5 +52,35 @@ public class PostTest {
     public void getPublished_isFalseAfterInstantiation_false()  throws Exception{
         Post myPost = new Post("Day 1: Intro");
         assertEquals(false,myPost.getPublished()); //should never start as published
+    }
+
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Post myPost = setUpNewPost(); //see below
+        assertEquals(LocalDateTime.now().getDayOfWeek(),myPost.getCreatedAt().getDayOfWeek());
+    }
+
+    public Post setUpNewPost() {
+        return new Post("Day 1: Intro");
+    }
+
+    @Test
+    public void getId_postsInstantiateWithAnID_1() throws Exception {
+        Post.clearAllPosts();//test will fail without this  line! We need to empty leftover Posts from previous tests!
+        Post myPost = new Post ("Day 1: Intro");
+        assertEquals(1, myPost.getId());
+    }
+
+    @Test
+    public void findReturnsCorrectPost() throws Exception {
+        Post post = setUpNewPost();
+        assertEquals(1, Post.findBId(post.getId()).getID());
+    }
+
+    @Test
+    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
+        Post post = setUpNewPost();
+        Post otherPost = new Post ("How to pair successfully");
+        assertEquals(2,Post. findById(otherPost.getId()).getId());
     }
 }
