@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.util.TimeZone;
 
 public class Post {
     private String content;
@@ -17,6 +18,11 @@ public class Post {
         instances.add(this);
         this.id = instances.size();
     }
+
+    public static TimeZone findBId(int id) {
+        return null;
+    }
+
 
     public String getContent() {
         return content;
@@ -44,6 +50,13 @@ public class Post {
 
     public static Post findById(int id) {
         return instances.get(id-1); //minus 1 because indexs start at 0
+    }
+
+    public void update(String content) {
+        this.content = content;
+    }
+    public void deletePost(){
+        instances.remove(id-1); //same reason
     }
 }
 

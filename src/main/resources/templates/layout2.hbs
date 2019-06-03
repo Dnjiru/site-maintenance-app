@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Blog{{/block}}</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+
+<body>
+<li class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="/posts">See All Posts</a></li>
+    <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
+</ul>
+
+<div class="container">
+    <div class="page-header">
+        <img src="images/codemac.jpg" width="70%">
+        <h1>Welcome to Site Management App.Manage your sites and engineers better!</h1>
+    </div>
+
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
+    </div>
+</div>
+
+{{#block "footer"}}
+    </body>
+    </html>
+{{/block}}
