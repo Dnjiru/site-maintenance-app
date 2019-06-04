@@ -1,6 +1,4 @@
 import java.util.*;
-
-;
 import dao.Sql2oEngineerDao;
 import dao.Sql2oSiteDao;
 import models.Engineer;
@@ -129,7 +127,7 @@ public class App {
 
         //site: process new site form
         post("/sites", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
+            Map<String, Object>model = new HashMap<>();
             List<Engineer> allEngineers = engineerDao.getAll();
             model.put("engineers", allEngineers);
             String description = req.queryParams("description");
@@ -312,5 +310,3 @@ public class App {
 
 
 
-    }
-}
