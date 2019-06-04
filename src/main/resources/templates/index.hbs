@@ -67,17 +67,34 @@
 
 <!--New Index for Blog Post!-->
 
+<!--{{#partial "content"}}-->
+
+<!--    <h1>Post list!</h1>-->
+
+<!--    {{#if posts}}-->
+<!--        {{#each posts }}-->
+<!--            <p>Current post:</p>-->
+<!--            <p>{{ content }} <a href="/posts/{{id}}">read more...</a></p>-->
+<!--        {{/each}}-->
+<!--    {{else}}-->
+<!--        <p>No posts!</p>-->
+<!--    {{/if}}-->
+<!--{{/partial}}-->
+
+<!--{{> layout.hbs}}-->
+
+<!--From TO DO LIST-->
+
 {{#partial "content"}}
 
-    <h1>Post list!</h1>
+    <h1> Engineers and the Site Assigned!</h1>
 
-    {{#if posts}}
-        {{#each posts }}
-            <p>Current post:</p>
-            <p>{{ content }} <a href="/posts/{{id}}">read more...</a></p>
+    {{#if sites}}
+        {{#each sites }}
+            <p><a href="/engineers/{{engineerId}}/sites/{{id}}">{{description}}</a></p>
         {{/each}}
     {{else}}
-        <p>No posts!</p>
+        <p>No Site!</p>
     {{/if}}
 {{/partial}}
 
