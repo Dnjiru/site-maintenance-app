@@ -1,4 +1,6 @@
 import java.util.*;
+
+import dao.DB;
 import dao.Sql2oEngineerDao;
 import dao.Sql2oSiteDao;
 import models.Engineer;
@@ -14,10 +16,8 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
-        Sql2oSiteDao siteDao = new Sql2oSiteDao(sql2o);
-        Sql2oEngineerDao engineerDao = new Sql2oEngineerDao(sql2o);
+        Sql2oSiteDao siteDao = new Sql2oSiteDao(DB.sql2o);
+        Sql2oEngineerDao engineerDao = new Sql2oEngineerDao(DB.sql2o);
 
         //configure for Deployment
         ProcessBuilder process = new ProcessBuilder();
