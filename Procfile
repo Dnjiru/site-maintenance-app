@@ -1,1 +1,1 @@
-git remote add origin https://github.com/Dnjiru/site-maintenance-app.git
+web: ./build/install/site-maintenance-app/bin/site-maintenance-app

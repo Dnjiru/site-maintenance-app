@@ -1,22 +1,19 @@
 package models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Objects;
 
-public class Task {
-
+public class Site {
     private String description;
     private boolean completed;
     private LocalDateTime createdAt;
     private int id;
-    private int categoryId;
+    private int engineerId;
 
-    public Task(String description, int categoryId) {
+    public Site(String description, int engineerId) {
         this.description = description;
         this.completed = false;
         this.createdAt = LocalDateTime.now();
-        this.categoryId = categoryId;
+        this.engineerId = engineerId;
     }
 
     public void setDescription(String description) { this.description = description; }
@@ -36,18 +33,18 @@ public class Task {
         return id;
     }
 
-    public int getCategoryId() { return categoryId; }
-    public void setCategoryId(int categoryId) { this.categoryId = categoryId; }
+    public int getEngineerId() { return engineerId; }
+    public void setEngineerId(int engineerId) { this.engineerId = engineerId; }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        if (completed != task.completed) return false;
-        if (id != task.id) return false;
-        if (categoryId != task.categoryId) return false;
-        return description != null ? description.equals(task.description) : task.description == null;
+        Site site = (Site) o;
+        if (completed != site.completed) return false;
+        if (id != site.id) return false;
+        if (engineerId != site.engineerId) return false;
+        return description != null ? description.equals(site.description) : site.description == null;
     }
 
     @Override
@@ -55,7 +52,7 @@ public class Task {
         int result = description != null ? description.hashCode() : 0;
         result = 31 * result + (completed ? 1 : 0);
         result = 31 * result + id;
-        result = 31 * result + categoryId;
+        result = 31 * result + engineerId;
         return result;
     }
 }

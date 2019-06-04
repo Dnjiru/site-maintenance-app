@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <h1>{{engineer.name}}</h1>
+    <p>Here are all the Sites listed under this Engineer:</p>
+    <ul>
+        {{#each sites}}
+            <li>
+                <p><a href="/engineers/{{engineer.id}}/sites/{{id}}">{{description}}</a></p>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/engineers/{{engineer.id}}/edit">Edit this Engineer</a><br>
+    <a href="/engineers/{{engineer.id}}/delete">DELETE this Engineer</a>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,22 +1,25 @@
 package dao;
 
-import models.Task;
+import models.Site;
+
 import java.util.List;
 
-public interface TaskDao {
+public interface SiteDao {
     // LIST
-    List<Task> getAll();
+    List<Site> getAll();
 
     // CREATE
-    void add(Task task);
+    void add(Site site);
 
     // READ
-    Task findById(int id);
+    Site findById(int id);
 
     // UPDATE
-     void update(int id, String content);
+    void update(int id, String content, int engineerId);
 
     // DELETE
-     void deleteById(int id);
-     void clearAllTasks();
+    void deleteById(int id);
+    void clearAllSites();
+
+
 }
