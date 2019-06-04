@@ -35,7 +35,7 @@ public class App {
         //get: show all sites in all engineers and show all engineers
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Locale.Engineer> allEngineers = engineerDao.getAll();
+            List<Engineer> allEngineers = engineerDao.getAll();
             model.put("engineers", allEngineers);
             List<Site> sites = siteDao.getAll();
             model.put("sites", sites);
@@ -104,7 +104,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfEngineerToEdit = Integer.parseInt(req.params("id"));
             String newName = req.queryParams("newEngineerName");
-            exception().update(idOfEngineerToEdit, newName);
+            engineerDao.update(idOfEngineerToEdit, newName);
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
@@ -156,7 +156,7 @@ public class App {
         //get: show a form to update a site
         get("/sites/:id/edit", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Engineer> allEngineer = engineerDao.getAll();
+            List<Engineer> allEngineers = engineerDao.getAll();
             model.put("engineers", allEngineers);
             Site site = siteDao.findById(Integer.parseInt(req.params("id")));
             model.put("site", site);
@@ -176,6 +176,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
     }
 }
+
 
 
 
