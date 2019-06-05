@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-
 import models.Engineer;
 import models.Site;
 
@@ -14,7 +13,7 @@ public interface EngineerDao {
 
     //READ
     Engineer findById(int id);
-    List<Site> getAllTasksByEngineer(int engineerId);
+    List<Site> getAllSitesByEngineer(int engineerId);
 
     //UPDATE
     void update(int id, String name);
@@ -23,5 +22,5 @@ public interface EngineerDao {
     void deleteById(int id);
     void clearAllEngineers();
 
-    List<Site> getAllSitesByEngineer(int engineerId);
+
 }

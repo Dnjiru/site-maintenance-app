@@ -46,10 +46,6 @@ public class Sql2oEngineerDao implements EngineerDao {
         }
     }
 
-    @Override
-    public List<Site> getAllTasksByEngineer(int engineerId) {
-        return null;
-    }
 
     @Override
     public void update(int id, String newName){
