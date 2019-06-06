@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<div class="container" style="font-size:1.4rem;">
 
+<div class="jumbotron text-center">
+    <h1>Sites Management App</h1>
+    <p>Keep Track Each site and the Engineer Assigned to Maintain it!</p>
+</div>
 
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation"><a href="/tasks/new">Add a New Site</a></li>
+    <li role="presentation"><a href="/sites">Add a New Site</a></li>
     <li role="presentation"><a href="/engineers/new">Add a New Engineer </a></li>
 
     <li role="presentation" class="dropdown">
@@ -35,12 +40,30 @@
             {{/if}}
         </ul>
     </li>
+
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Sites List <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            {{#if sites}}
+                {{#each sites}}
+                    <li><a href="/sites/{{id}}">{{name}}</a></li>
+                {{/each}}
+                <li><a href="/sites">Add a Site</a></li>
+
+            {{else}}
+                <li><a href="/sites/new">Add a Site</a></li>
+            {{/if}}
+        </ul>
+    </li>
 </ul>
-<div class="container">
+
 
     <!--begin main template-->
     <div class="page-header">
-        <img src="/images/bts1.jpg" width="70%" alt="Photo of a BTS">
+        <img src="/images/ncity.jpg" width="99%" alt="Photo of a BTS" style="border-radius:15px;">
         <h1>Sites Manager App. <small>Track each site and the engineer maintaining it.</small></h1>
     </div>
 
@@ -49,19 +72,35 @@
         {{/block}}
 
     </div>
-</div>
+
 <!--end main template-->
 
 {{#block "footer"}}
     <footer class="footer">
         <div class="container">
-            <hr>
-            <p class="text-muted">
-                <a href="/categories/delete">Delete all Engineer & Sites</a><br>
-                <a href="/tasks/delete">Delete all Sites</a>
-            </p>
+            <div class="col-md-4">
+                <p class="text-muted">
+                    <a href="/categories/delete">Delete all Engineer & Sites</a><br>
+
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted">
+
+                    <a href="/tasks/delete">Delete all Sites</a>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="text-muted">
+
+                    <a href="/tasks/delete">Delete all Engineers</a>
+                </p>
+            </div>
+
         </div>
     </footer>
+</div>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

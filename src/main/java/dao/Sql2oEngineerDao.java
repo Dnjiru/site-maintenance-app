@@ -86,7 +86,7 @@ public class Sql2oEngineerDao implements EngineerDao {
     @Override
     public List<Site> getAllSitesByEngineer(int engineerId) {
         try(Connection con = DB.sql2o.open()){
-            return con.createQuery("SELECT * FROM tasks WHERE engineerId = :engineerId")
+            return con.createQuery("SELECT * FROM sites WHERE engineerId = :engineerId")
                     .addParameter("engineerId", engineerId)
                     .executeAndFetch(Site.class);
         }

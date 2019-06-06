@@ -1,18 +1,15 @@
 
 {{#partial "content"}}
 
-        <div class="jumbotron text-center">
-            <h1>Sites Management App</h1>
-            <p>Keep Track Each site and the Engineer Assigned to Maintain it!</p>
-        </div>
+    <div class="container">
 
-        <div class="container">
-
-    <h1> Engineers and the Site Assigned!</h1>
+    <h1> List of Sites!</h1>
 
     {{#if sites}}
         {{#each sites }}
             <p><a href="/engineers/{{engineerId}}/sites/{{id}}">{{description}}</a></p>
+                <p><a href="/sites/{{id}}/sites/{{id}}">{{description}}</a></p>
+
         {{/each}}
     {{else}}
         <p>No Site!</p>

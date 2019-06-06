@@ -4,14 +4,14 @@
         <form action="/engineers/{{engineer.id}}" method="post">
             <label for="name">Edit this Engineer's name</label>
             <input id="newEngineerName" name="newEngineerName" type="text" value="{{engineer.name}}">
-            <button type="submit" class="btn btn-default">Add!</button>
+            <button type="submit" class="btn btn-secondary">Add!</button>
         </form>
     {{else}}
         <h1>Add a New Engineer!</h1>
         <form action="/engineers" method="post">
             <label for="name">Engineer Name</label>
             <input id="name" name="name" type="text">
-            <button type="submit" class="btn btn-default">Add!</button>
+            <button type="submit" class="btn btn-secondary">Add!</button>
         </form>
     {{/if}}
 {{/partial}}
